@@ -3,3 +3,7 @@
     grid-template-columns: 1fr 1fr;
     gap: 2em;
 }
+.video-player{
+    background-color: #000;
+    width: 100%;
+}
