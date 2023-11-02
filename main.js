@@ -1,0 +1,2 @@
+let localStream;
+let remoteStream;
