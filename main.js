@@ -9,6 +9,9 @@ let init = async () => {
 
 let createOffer = async () => {
     peerConnection = new RTCPeerConnection();
+
+    remoteStream = new MediaStream();
+
 }
 
 init();
