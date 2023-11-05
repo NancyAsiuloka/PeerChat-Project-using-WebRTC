@@ -7,6 +7,8 @@ let init = async () => {
     document.getElementById('user-1').srcObject = localStream;
 }
 
-let createOffer
+let createOffer = async () => {
+    peerConnection = new RTCPeerConnection();
+}
 
 init();
