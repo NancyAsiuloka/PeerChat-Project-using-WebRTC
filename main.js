@@ -12,6 +12,9 @@ let createOffer = async () => {
 
     remoteStream = new MediaStream();
     document.getElementById('user-2').srcObject = remoteStream;
+
+    let offer = await peerConnection.createOffer();
+    await peerConnection.setLocalDescription(offer);
 }
 
 init();
