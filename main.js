@@ -5,6 +5,8 @@ let peerConnection;
 let init = async () => {
     localStream = await navigator.mediaDevices.getUserMedia({video:true, audio:false});
     document.getElementById('user-1').srcObject = localStream;
+
+    createOffer();
 }
 
 let createOffer = async () => {
@@ -15,6 +17,8 @@ let createOffer = async () => {
 
     let offer = await peerConnection.createOffer();
     await peerConnection.setLocalDescription(offer);
+
+    console.log('Offer:', offer)
 }
 
 init();
