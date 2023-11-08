@@ -1,3 +1,9 @@
+let APP_ID = "8e6a8ba042c5479480b5d4cfe4a32b4e"
+
+let token = null;
+let uid = String(Math.floor(Math.random() * 10000))
+
+
 let localStream;
 let remoteStream;
 let peerConnection;
