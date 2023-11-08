@@ -27,6 +27,10 @@ let createOffer = async () => {
         peerConnection.addTrack(track, localStream);
     })
 
+    peerConnection.ontrack = (event) => {
+
+    };
+
     let offer = await peerConnection.createOffer();
     await peerConnection.setLocalDescription(offer);
 
