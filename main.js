@@ -47,7 +47,7 @@ let handleUserJoined = async (MemberId) => {
   createOffer(MemberId);
 };
 
-let createOffer = async (MemberId) => {
+let createPeerConnection = async (MemberId) => {
   peerConnection = new RTCPeerConnection(servers);
 
   remoteStream = new MediaStream();
@@ -84,6 +84,10 @@ let createOffer = async (MemberId) => {
       );
     }
   };
+};
+
+let createOffer = async (MemberId) => {
+  await createPeerConnection(MemberId);
 
   let offer = await peerConnection.createOffer();
   await peerConnection.setLocalDescription(offer);
@@ -93,5 +97,7 @@ let createOffer = async (MemberId) => {
     MemberId
   );
 };
+
+let createAnswer = async (MemberId) => {};
 
 init();
