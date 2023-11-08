@@ -29,17 +29,23 @@ let init = async () => {
 
     channel.on('MemberJoined', handleUserJoined)
 
+    client.on('MessageFromPeer', handleMessageFromPeer)
+
     localStream = await navigator.mediaDevices.getUserMedia({video:true, audio:false});
     document.getElementById('user-1').srcObject = localStream;
 
-    createOffer()
+}
+
+let handleMessageFromPeer = async (message, MemberId) => {
+    console.log('Message:', message.text);
 }
 
 let handleUserJoined = async (MemberId) => {
     console.log('A new user joined the channel:', MemberId);
+    createOffer(MemberId)
 }
 
-let createOffer = async () => {
+let createOffer = async (MemberId) => {
     peerConnection = new RTCPeerConnection(servers);
 
     remoteStream = new MediaStream();
@@ -64,7 +70,7 @@ let createOffer = async () => {
     let offer = await peerConnection.createOffer();
     await peerConnection.setLocalDescription(offer);
 
-    console.log('Offer:', offer)
+    client.sendMessageToPeer({text: 'Hey!!!'}, MemberId)
 }
 
 init();
