@@ -3,6 +3,9 @@ let APP_ID = "8e6a8ba042c5479480b5d4cfe4a32b4e"
 let token = null;
 let uid = String(Math.floor(Math.random() * 10000))
 
+let client;
+let channel;
+
 
 let localStream;
 let remoteStream;
@@ -17,6 +20,11 @@ const servers = {
 }
 
 let init = async () => {
+    client = await AgoraRtm.createInstance(APP_ID)
+    await client.login({uid, token})
+
+
+
     localStream = await navigator.mediaDevices.getUserMedia({video:true, audio:false});
     document.getElementById('user-1').srcObject = localStream;
 
