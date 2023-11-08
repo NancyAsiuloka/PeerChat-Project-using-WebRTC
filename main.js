@@ -98,6 +98,19 @@ let createOffer = async (MemberId) => {
   );
 };
 
-let createAnswer = async (MemberId) => {};
+let createAnswer = async (MemberId, offer) => {
+    await createPeerConnection(MemberId);
+
+    await peerConnection.setRemoteDescription(offer);
+
+    let answer = await peerConnection.createAnswer();
+    await peerConnection.setLocalDescription(answer)
+
+    client.sendMessageToPeer(
+        { text: JSON.stringify({ type: "offer", offer: offer }) },
+        MemberId
+      );
+
+};
 
 init();
