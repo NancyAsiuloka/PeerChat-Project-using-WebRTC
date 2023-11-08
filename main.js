@@ -39,7 +39,9 @@ let init = async () => {
 
 let handleMessageFromPeer = async (message, MemberId) => {
   message = JSON.parse(message.text);
-  console.log("Message:", message);
+  if(message.type === 'offer') {
+    createAnswer(MemberId, message.offer)
+  }
 };
 
 let handleUserJoined = async (MemberId) => {
