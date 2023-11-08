@@ -33,6 +33,12 @@ let createOffer = async () => {
         })
     };
 
+    peerConnection.onicecandidate = async (event) => {
+        if(event.candidate){
+            console.log('New ICE candidate:', event.candidate)
+        }
+    }
+
     let offer = await peerConnection.createOffer();
     await peerConnection.setLocalDescription(offer);
 
