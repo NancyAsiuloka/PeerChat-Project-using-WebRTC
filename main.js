@@ -20,16 +20,23 @@ const servers = {
 }
 
 let init = async () => {
-    client = await AgoraRtm.createInstance(APP_ID)
+    client = await AgoraRTM.createInstance(APP_ID)
     await client.login({uid, token})
 
     // index.html?room=234234
-    channel = client.createChannel(roomID)
+    channel = client.createChannel('main')
+    await channel.join()
+
+    channel.on('MemberJoined', handleUserJoined)
 
     localStream = await navigator.mediaDevices.getUserMedia({video:true, audio:false});
     document.getElementById('user-1').srcObject = localStream;
 
     createOffer()
+}
+
+let handleUserJoined = async (MemberId) => {
+    console.log('A new user joined the channel:', MemberId);
 }
 
 let createOffer = async () => {
