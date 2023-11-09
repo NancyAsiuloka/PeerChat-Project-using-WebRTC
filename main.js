@@ -122,7 +122,9 @@ let createAnswer = async (MemberId, offer) => {
 };
 
 let addAnswer = async (answer) => {
-
+    if(!peerConnection.currentRemoteDescription){
+        peerConnection.setRemoteDescription(answer);
+    }
 };
 
 init();
