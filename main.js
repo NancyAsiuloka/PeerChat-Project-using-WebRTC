@@ -48,6 +48,11 @@ let handleMessageFromPeer = async (message, MemberId) => {
     addAnswer(message.answer)
   }
 
+  if(message.type === 'candidate') {
+    if(peerConnection){
+        peerConnection.addIceCandidate(message.candidate)
+    }
+  }
 
 };
 
