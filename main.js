@@ -45,7 +45,7 @@ let handleMessageFromPeer = async (message, MemberId) => {
   }
 
   if(message.type === 'answer') {
-    createAnswer(MemberId, message.offer)
+    addAnswer(MemberId, message.offer)
   }
 };
 
