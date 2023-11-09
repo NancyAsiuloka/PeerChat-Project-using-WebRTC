@@ -121,4 +121,8 @@ let createAnswer = async (MemberId, offer) => {
   );
 };
 
+let addAnswer = async (answer) => {
+
+};
+
 init();
