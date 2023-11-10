@@ -156,9 +156,15 @@ let toggleCamera = async () => {
 
   if(videoTrack.enabled) {
     videoTrack.enabled = false;
+    document.getElementById('camera-btn').style.backgroundColor = "rgb(255, 80, 80)";
+  } else {
+    videoTrack.enabled = true;
+    document.getElementById('camera-btn').style.backgroundColor = "rgb(179, 102, 249, .9)";
   }
 }
 
 window.addEventListener('beforeunload', leaveChannel);
+
+document.getElementById('camera-btn').addEventListener('click', toggleCamera);
 
 init();
