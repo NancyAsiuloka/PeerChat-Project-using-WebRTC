@@ -12,3 +12,7 @@
 #user-2{
     display: none;
 }
+
+.control-container{
+    background-color: rgb(179, 182, 249, .9);
+}
