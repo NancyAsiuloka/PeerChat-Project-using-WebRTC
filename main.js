@@ -27,6 +27,7 @@ let init = async () => {
   await channel.join();
 
   channel.on("MemberJoined", handleUserJoined);
+  channel.on('MemberLeft', handleUserLeft);
 
   client.on("MessageFromPeer", handleMessageFromPeer);
 
@@ -66,6 +67,7 @@ let createPeerConnection = async (MemberId) => {
 
   remoteStream = new MediaStream();
   document.getElementById("user-2").srcObject = remoteStream;
+  document.getElementById("user-2").style.display = "block";
 
   if (!localStream) {
     localStream = await navigator.mediaDevices.getUserMedia({
