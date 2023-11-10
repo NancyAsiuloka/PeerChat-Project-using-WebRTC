@@ -38,6 +38,11 @@ let init = async () => {
   document.getElementById("user-1").srcObject = localStream;
 };
 
+
+let handleUserLeft = (MemberId) => {
+  document.getElementById('user-2').style.display = 'none';
+}
+
 let handleMessageFromPeer = async (message, MemberId) => {
   message = JSON.parse(message.text);
 
@@ -133,5 +138,12 @@ let addAnswer = async (answer) => {
         peerConnection.setRemoteDescription(answer);
     }
 };
+
+let leaveChannel = async () => {
+  await channel.leave();
+  await channel.logout();
+}
+
+window.addEventListener('beforeunload', leaveChannel);
 
 init();
