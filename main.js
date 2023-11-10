@@ -151,6 +151,14 @@ let leaveChannel = async () => {
   await channel.logout();
 }
 
+let toggleCamera = async () => {
+  let videoTrack = localStream.getTracks().find(track => track.kind === 'video');
+
+  if(videoTrack.enabled) {
+    videoTrack.enabled = false;
+  }
+}
+
 window.addEventListener('beforeunload', leaveChannel);
 
 init();
