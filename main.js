@@ -39,6 +39,7 @@ let init = async () => {
 
 let handleMessageFromPeer = async (message, MemberId) => {
   message = JSON.parse(message.text);
+
   if(message.type === 'offer') {
     createAnswer(MemberId, message.offer)
   }
