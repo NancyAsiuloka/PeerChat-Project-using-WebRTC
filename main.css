@@ -20,4 +20,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
+}
+
+.control-container img{
+    height: 30px;
+    width: 30px;
 }
