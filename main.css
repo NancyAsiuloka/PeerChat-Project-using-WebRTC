@@ -63,5 +63,7 @@
 }
 
 @media screen and (max-width:600px) {
-
+    .smallFrame{
+        height: 80px;
+    }
 }
