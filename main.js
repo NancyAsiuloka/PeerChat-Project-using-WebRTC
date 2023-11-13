@@ -1,4 +1,4 @@
-let APP_ID = "8e6a8ba042c5479480b5d4cfe4a32b4e";
+let APP_ID = "YOU-APP-ID";
 
 let token = null;
 let uid = String(Math.floor(Math.random() * 10000));
@@ -90,7 +90,7 @@ let createPeerConnection = async (MemberId) => {
   if (!localStream) {
     localStream = await navigator.mediaDevices.getUserMedia({
       video: true,
-      audio: false,
+      audio: true,
     });
     document.getElementById("user-1").srcObject = localStream;
   }
